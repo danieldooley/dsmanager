@@ -58,7 +58,7 @@ func handleHibernate(res http.ResponseWriter, req *http.Request) {
 func shutDownTill(till time.Time) error {
 	d := time.Until(till)
 
-	cmd := exec.Command("rtcwake", "-s", "60"/*fmt.Sprintf("%d", int(d.Seconds()))*/, "-m", "off")
+	cmd := exec.Command("rtcwake", "-s", fmt.Sprintf("%d", int(d.Seconds())), "-m", "off")
 	b, err := cmd.CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("rtcwake cmd failed: \nRTCWAKE OUTPUT:\n%s", string(b))

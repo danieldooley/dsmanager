@@ -1,0 +1,13 @@
+[Unit]
+Description=dooley-server manager
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/ddooley/go/src/github.com/danieldooley/dsmanager/cmd/dsmanager
+ExecStart=/usr/local/go/bin/go run main.go plex.go schedule.go weblogger.go
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
