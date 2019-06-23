@@ -1,0 +1,4 @@
+<MediaContainer size="2">
+    <Server name="Chrome" host="127.0.0.1" address="127.0.0.1" port="32400" machineIdentifier="akdr4c13eweinh0ormy1rcpk" version="3.95.2" protocol="plex" product="Plex Web" deviceClass="pc" protocolVersion="3" protocolCapabilities="timeline,playback,navigation,mirror,playqueues"/>
+    <Server name="Dan Dooley’s iPhone" host="192.168.1.52" address="192.168.1.52" port="32500" machineIdentifier="6F606440-66D6-47DD-B6BD-9BFE8841D621" version="5.16.1" protocol="plex" product="Plex for iOS" deviceClass="phone" protocolVersion="1" protocolCapabilities="playback,playqueues,timeline"/>
+</MediaContainer>

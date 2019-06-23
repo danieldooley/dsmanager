@@ -1,0 +1,107 @@
+<MediaContainer size="2">
+    <Video addedAt="1555056969" art="/library/metadata/70/art/1557309010" contentRating="PG-13" duration="6833584" guid="com.plexapp.agents.imdb://tt4701182?lang=en" key="/library/metadata/70" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Movies" originallyAvailableAt="2018-12-15" rating="6.9" ratingImage="imdb://image.rating" ratingKey="70" sessionKey="6" studio="Paramount" summary="On the run in the year 1987, Bumblebee finds refuge in a junkyard in a small Californian beach town. Charlie, on the cusp of turning 18 and trying to find her place in the world, discovers Bumblebee, battle-scarred and broken. When Charlie revives him, she quickly learns this is no ordinary yellow VW bug." tagline="Every Hero Has a Beginning" thumb="/library/metadata/70/thumb/1557309010" title="Bumblebee.2018.1080p.BluRay.H264.AAC-RARBG" type="movie" updatedAt="1557309010" viewOffset="5005" year="2018">
+        <Media aspectRatio="1.78" audioChannels="6" audioCodec="aac" audioProfile="lc" bitrate="2723" container="mp4" duration="6833584" has64bitOffsets="0" height="1080" id="70" optimizedForStreaming="0" videoCodec="h264" videoFrameRate="24p" videoProfile="high" videoResolution="1080" width="1920" selected="1">
+            <Part audioProfile="lc" container="mp4" duration="6833584" file="/media/Movies/Bumblebee (2018)/Bumblebee 2018.mp4" has64bitOffsets="0" id="70" key="/library/parts/70/1555056969/file.mp4" optimizedForStreaming="0" size="2330799306" videoProfile="high" decision="directplay" selected="1">
+                <Stream bitDepth="8" bitrate="2499" chromaLocation="left" chromaSubsampling="4:2:0" codec="h264" default="1" displayTitle="1080p (H.264)" frameRate="23.976" hasScalingMatrix="0" height="1080" id="7558" index="0" level="41" profile="high" refFrames="4" streamIdentifier="1" streamType="1" width="1920" location="direct"/>
+                <Stream bitrate="224" channels="6" codec="aac" default="1" displayTitle="English (AAC 5.1)" id="7559" index="1" language="English" languageCode="eng" profile="lc" samplingRate="48000" selected="1" streamIdentifier="2" streamType="2" location="direct"/>
+            </Part>
+        </Media>
+        <Genre count="148" filter="genre=152" id="152" tag="Action"/>
+        <Genre count="150" filter="genre=548" id="548" tag="Adventure"/>
+        <Genre count="85" filter="genre=77" id="77" tag="Sci-Fi"/>
+        <Director filter="director=4180" id="4180" tag="Travis Knight"/>
+        <Writer filter="writer=4181" id="4181" tag="Christina Hodson"/>
+        <Producer count="2" filter="producer=156" id="156" tag="Michael Bay"/>
+        <Producer filter="producer=4227" id="4227" tag="Stephen Davis"/>
+        <Producer filter="producer=4228" id="4228" tag="Tom DeSanto"/>
+        <Country count="294" filter="country=27" id="27" tag="USA"/>
+        <Role count="4" filter="actor=4198" id="4198" role="Charlie Watson" tag="Hailee Steinfeld" thumb="http://image.tmdb.org/t/p/original/ec84nQSQYfrfgale6Nw1YxENxg.jpg"/>
+        <Role count="4" filter="actor=4011" id="4011" role="Memo" tag="Jorge Lendeborg Jr." thumb="http://image.tmdb.org/t/p/original/jDkT3Yf2AWG21Iy8l7cakTEncJU.jpg"/>
+        <Role count="5" filter="actor=4205" id="4205" role="Agent Jack Burns" tag="John Cena" thumb="http://image.tmdb.org/t/p/original/WbnZd6SK3DRlQBBW1yP1xHwlbs.jpg"/>
+        <Role filter="actor=4203" id="4203" role="Otis Watson" tag="Jason Ian Drucker" thumb="http://image.tmdb.org/t/p/original/5byvFfK7a34A2VDAI9comnI8h96.jpg"/>
+        <Role filter="actor=4218" id="4218" role="Sally Watson" tag="Pamela Adlon" thumb="http://image.tmdb.org/t/p/original/DbStLMSMhW1qtmKugYjS4yWOi.jpg"/>
+        <Role filter="actor=4222" id="4222" role="Ron" tag="Stephen Schneider" thumb="https://thetvdb.com/banners/actors/326955.jpg"/>
+        <Role filter="actor=4220" id="4220" role="Tripp" tag="Ricardo Hoyos" thumb="http://image.tmdb.org/t/p/original/ja4ktQZgFKUlDrOsiA9nHeXUCCh.jpg"/>
+        <Role count="3" filter="actor=669" id="669" role="Dr. Powell" tag="John Ortiz" thumb="http://image.tmdb.org/t/p/original/6EXZm45aPUOERq2rCrUnkz3sGoc.jpg"/>
+        <Role count="2" filter="actor=4138" id="4138" role="General Whalen" tag="Glynn Turman" thumb="http://image.tmdb.org/t/p/original/yEW4JrFPyTTsoSeDQYwHxBihMuM.jpg"/>
+        <Role count="3" filter="actor=4212" id="4212" role="Hank" tag="Len Cariou" thumb="http://image.tmdb.org/t/p/original/sXYaqG6en0MGbXG0zpVaWD7y76W.jpg"/>
+        <Role filter="actor=4209" id="4209" role="Craig" tag="Kollin Holtz" thumb="http://image.tmdb.org/t/p/original/bMXTK1qcL2qAa9xqHggmJQJNc6T.jpg"/>
+        <Role filter="actor=4196" id="4196" role="Tina" tag="Gracie Dzienny" thumb="http://image.tmdb.org/t/p/original/efqHAnG95i6HYVAeNic9TwoatkJ.jpg"/>
+        <Role filter="actor=4194" id="4194" role="Sheriff Lock" tag="Fred Dryer" thumb="http://image.tmdb.org/t/p/original/glUDeSN7nMbmCfAVpIAtaDaoXaS.jpg"/>
+        <Role filter="actor=4200" id="4200" role="Mean Girlfriend" tag="Isabelle Ellingson" thumb="http://image.tmdb.org/t/p/original/rQJBoxcHYE8NuRQqb4XDE53H525.jpg"/>
+        <Role count="2" filter="actor=2055" id="2055" role="Mean Girlfriend" tag="Mika Kubo" thumb="http://image.tmdb.org/t/p/original/4cUGvZXqqIk7DR6dI2OX8ZkEKs3.jpg"/>
+        <Role filter="actor=4193" id="4193" role="Party Goer" tag="Felicia Stiles" thumb="http://image.tmdb.org/t/p/original/jU0Mc0bs8orxXcnSFWDc0YPDZBf.jpg"/>
+        <Role filter="actor=4195" id="4195" role="Party Goer" tag="George Anagnostou" thumb="http://image.tmdb.org/t/p/original/AlnRuf4mfeDGA3wOxo2NUuyMn3i.jpg"/>
+        <Role filter="actor=4185" id="4185" role="Party Goer" tag="Brandon Wardle" thumb="http://image.tmdb.org/t/p/original/rE3qaiJy7AQ19OsKXtVejK9Lg0C.jpg"/>
+        <Role filter="actor=4213" id="4213" role="Roy" tag="Lenny Jacobson" thumb="http://image.tmdb.org/t/p/original/pDRDMPsU85iEIc5JD7z3l9SQRTW.jpg"/>
+        <Role filter="actor=4215" id="4215" role="Amber" tag="Megyn Price" thumb="http://image.tmdb.org/t/p/original/w9qgCVeCr6hs4ALzEDWMKG8jpvJ.jpg"/>
+        <Role filter="actor=4210" id="4210" role="News Reporter" tag="Krystin Goodwin" thumb="http://image.tmdb.org/t/p/original/tOgst4BvSOtinyHsTXOBm9ZTJCY.jpg"/>
+        <Role filter="actor=4216" id="4216" role="Young Agent Simmons" tag="Nick Pilla" thumb="http://image.tmdb.org/t/p/original/auj3cP6112l5AQYkmNOFQNBuPDY.jpg"/>
+        <Role filter="actor=4221" id="4221" role="Pilot Hutton" tag="Sachin Bhatt" thumb="http://image.tmdb.org/t/p/original/usAEiMkX0ZQuIB7xDvbRLdpPLUJ.jpg"/>
+        <Role filter="actor=4224" id="4224" role="Charlie's Dad" tag="Tim Martin Gleason" thumb="http://image.tmdb.org/t/p/original/gvpkprhsn1kO8p5mqy5ekcuHSAX.jpg"/>
+        <Role filter="actor=4189" id="4189" role="Impatient Guy" tag="David Waters"/>
+        <Role filter="actor=4184" id="4184" role="Bill the Mechanic" tag="Antonio D. Charity" thumb="http://image.tmdb.org/t/p/original/S8T0ABox1qJYbl84GWkQNU7wvZ.jpg"/>
+        <Role filter="actor=4186" id="4186" role="Young Agent" tag="Courtney Coker" thumb="http://image.tmdb.org/t/p/original/40kWsdvxjZUm1L5NvKdl9kRwECO.jpg"/>
+        <Role filter="actor=4192" id="4192" role="Danny" tag="Edwin Hodge" thumb="http://image.tmdb.org/t/p/original/oC56KKxXBufH182bw4QwtsZ5Jj6.jpg"/>
+        <Role filter="actor=4202" id="4202" role="Danny's Paintball Team" tag="Jake Huang" thumb="http://image.tmdb.org/t/p/original/tJEsZN9FaQXDfMcSPFnEDwuyxkN.jpg"/>
+        <Role filter="actor=4199" id="4199" role="Danny's Paintball Team" tag="Holland Diaz" thumb="http://image.tmdb.org/t/p/original/UotsXobHgwli9DrlCnAExxXGqk.jpg"/>
+        <Role filter="actor=4187" id="4187" role="Danny's Paintball Team" tag="David Cutler"/>
+        <Role filter="actor=4211" id="4211" role="Humvee Driver" tag="Lars Slind" thumb="http://image.tmdb.org/t/p/original/yTMrzD012icPAU9Kzlwh4ROJutM.jpg"/>
+        <Role count="4" filter="actor=4191" id="4191" role="B-127 / Bumblebee (voice)" tag="Dylan O'Brien" thumb="http://image.tmdb.org/t/p/original/gmU3f4aR6Bd8zkk6AiLm0dvWPaE.jpg"/>
+        <Role filter="actor=4219" id="4219" role="Optimus Prime (voice)" tag="Peter Cullen" thumb="http://image.tmdb.org/t/p/original/bEOlxkKjGKRHIwUDfPN3JlFffpx.jpg"/>
+        <Role count="2" filter="actor=4183" id="4183" role="Shatter (voice)" tag="Angela Bassett" thumb="http://image.tmdb.org/t/p/original/qvIFNQLWzWyqjykiU0ONQ7u6Ihz.jpg"/>
+        <Role count="2" filter="actor=4207" id="4207" role="Dropkick (voice)" tag="Justin Theroux" thumb="http://image.tmdb.org/t/p/original/vnI9L0rXBAw1HeC0Q8hJGeJMGAW.jpg"/>
+        <Role count="2" filter="actor=4188" id="4188" role="Blitzwing (voice)" tag="David Sobolov" thumb="http://image.tmdb.org/t/p/original/lUXbnlyQPsfAGg0oinCtj6KlOkt.jpg"/>
+        <Role filter="actor=4197" id="4197" role="Arcee (voice)" tag="Grey DeLisle" thumb="https://thetvdb.com/banners/actors/424012.jpg"/>
+        <Role filter="actor=4206" id="4206" role="Shockwave / Soundwave (voice)" tag="Jon Bailey" thumb="http://image.tmdb.org/t/p/original/jk211le3CThwhOIPBK2FsV9sSJC.jpg"/>
+        <Role filter="actor=4223" id="4223" role="Wheeljack (voice)" tag="Steve Blum" thumb="http://image.tmdb.org/t/p/original/cpO0muunoigq1WHegeOEI1AIQAo.jpg"/>
+        <Role filter="actor=4182" id="4182" role="Cliffjumper (voice)" tag="Andrew Morgado" thumb="http://image.tmdb.org/t/p/original/rDkWTPcsFtw5MQCi1qxSXXZlXG2.jpg"/>
+        <Role count="4" filter="actor=4208" id="4208" role="Brawn / Seekers (voice)" tag="Kirk Baily" thumb="http://image.tmdb.org/t/p/original/pu0kg7Nbaw028jnQlQXLO5ZGaZk.jpg"/>
+        <Role filter="actor=4190" id="4190" role="Ratchet (voice)" tag="Dennis Singletary" thumb="http://image.tmdb.org/t/p/original/rlUQcql7XFfIWBNccKvIW0WnIPW.jpg"/>
+        <Role count="2" filter="actor=2078" id="2078" role="The Mean Girl (uncredited)" tag="Vanessa Ross" thumb="http://image.tmdb.org/t/p/original/pfEABf4uwcd4gRIJz9b4aOaPEtl.jpg"/>
+        <Role count="2" filter="actor=4225" id="4225" role="Roller Coaster Rider (uncredited)" tag="Tony Toste" thumb="http://image.tmdb.org/t/p/original/arlPM0nBiBJFhG9lr7z42UO4PGK.jpg"/>
+        <Role filter="actor=4217" id="4217" role="Boardwalk Patron (uncredited)" tag="Nico Abiera" thumb="http://image.tmdb.org/t/p/original/ibAJLZ9p3hTOScJCK8Uk1vGyc5K.jpg"/>
+        <Role filter="actor=4204" id="4204" role="Teen Party Goer / Mean Girl (uncredited)" tag="Jiana Alvarez" thumb="http://image.tmdb.org/t/p/original/yQQ0WPVNt46fGETsyeuklMMY74J.jpg"/>
+        <Role filter="actor=4226" id="4226" role="Teen Party Goer (uncredited)" tag="Yianni Apostolopolous"/>
+        <Role filter="actor=4201" id="4201" role="Karate Studio Friend (uncredited)" tag="Jace Areff"/>
+        <Role filter="actor=4214" id="4214" role="Karate Student (uncredited)" tag="Manny Avina" thumb="http://image.tmdb.org/t/p/original/1BXJJRzMKxopfFBlZUWzsEZMbQz.jpg"/>
+        <Role count="2" filter="actor=2081" id="2081" role="Neighbor (uncredited)" tag="William W. Barbour" thumb="http://image.tmdb.org/t/p/original/pAqnTFZlnrVEdOzwvXu9jv0gwHZ.jpg"/>
+        <Similar count="10" filter="similar=829" id="829" tag="Aquaman"/>
+        <Similar count="6" filter="similar=2161" id="2161" tag="Mortal Engines"/>
+        <Similar count="15" filter="similar=844" id="844" tag="Venom"/>
+        <Similar count="12" filter="similar=842" id="842" tag="Spider-Man: Into the Spider-Verse"/>
+        <Similar count="22" filter="similar=828" id="828" tag="Ant-Man and the Wasp"/>
+        <Similar count="6" filter="similar=4232" id="4232" tag="Robin Hood"/>
+        <Similar count="9" filter="similar=840" id="840" tag="Ralph Breaks the Internet"/>
+        <Similar count="6" filter="similar=2744" id="2744" tag="The Predator"/>
+        <Similar count="11" filter="similar=2098" id="2098" tag="Skyscraper"/>
+        <Similar count="5" filter="similar=2738" id="2738" tag="Overlord"/>
+        <Similar count="18" filter="similar=2096" id="2096" tag="Mission: Impossible - Fallout"/>
+        <Similar count="2" filter="similar=4230" id="4230" tag="Creed II"/>
+        <Similar count="6" filter="similar=2160" id="2160" tag="Glass"/>
+        <Similar count="6" filter="similar=581" id="581" tag="The Meg"/>
+        <Similar count="13" filter="similar=834" id="834" tag="Fantastic Beasts: The Crimes of Grindelwald"/>
+        <Similar count="9" filter="similar=2092" id="2092" tag="Captain Marvel"/>
+        <Similar count="10" filter="similar=3308" id="3308" tag="Rampage"/>
+        <Similar count="8" filter="similar=4231" id="4231" tag="Pacific Rim: Uprising"/>
+        <Similar count="9" filter="similar=2094" id="2094" tag="Jurassic World: Fallen Kingdom"/>
+        <Similar count="2" filter="similar=4229" id="4229" tag="Alita: Battle Angel"/>
+        <User id="1" thumb="https://plex.tv/users/d927be529ee9fccb/avatar?c=1558480799" title="david_doolan"/>
+        <Player address="192.168.1.52" device="iPhone" machineIdentifier="6F606440-66D6-47DD-B6BD-9BFE8841D621" model="10,3" platform="iOS" platformVersion="12.3.1" product="Plex for iOS" profile="iOS" remotePublicAddress="" state="playing" title="Dan Dooley’s iPhone" vendor="Apple" version="5.16.1" local="1" relayed="0" secure="1" userID="1"/>
+        <Session id="6F606440-66D6-47DD-B6BD-9BFE8841D621" bandwidth="5717" location="lan"/>
+    </Video>
+    <Video addedAt="1490100245" art="/library/metadata/6526/art/1557313249" chapterSource="media" contentRating="TV-14" duration="1441109" grandparentArt="/library/metadata/6526/art/1557313249" grandparentKey="/library/metadata/6526" grandparentRatingKey="6526" grandparentTheme="/library/metadata/6526/theme/1557313249" grandparentThumb="/library/metadata/6526/thumb/1557313249" grandparentTitle="One-Punch Man" guid="com.plexapp.agents.thetvdb://293088/1/12?lang=en" index="12" key="/library/metadata/6538" lastViewedAt="1558143880" librarySectionID="3" librarySectionKey="/library/sections/3" librarySectionTitle="Anime" originallyAvailableAt="2015-12-20" parentIndex="1" parentKey="/library/metadata/6534" parentRatingKey="6534" parentThumb="/library/metadata/6534/thumb/1557313249" parentTitle="Season 1" rating="9.3" ratingKey="6538" sessionKey="5" summary="The inconceivably powerful Lord Boros has traveled untold distances in search of someone who can cure his boredom: Saitama! With the fate of humanity in the balance, will the two champions at last find in each other the worthy opponent they've been searching for?" thumb="/library/metadata/6538/thumb/1557313247" title="The Strongest Hero" titleSort="Strongest Hero" type="episode" updatedAt="1557313247" viewOffset="8000" year="2015">
+        <Media audioProfile="lc" id="12763" videoProfile="high" audioChannels="2" audioCodec="aac" bitrate="5968" container="mp4" duration="1441109" height="1080" optimizedForStreaming="1" protocol="dash" videoCodec="h264" videoFrameRate="24p" videoResolution="1080p" width="1920" selected="1">
+            <Part audioProfile="lc" id="12763" videoProfile="high" bitrate="5968" container="mp4" duration="1441109" height="1080" optimizedForStreaming="1" protocol="dash" width="1920" decision="transcode" selected="1">
+                <Stream bitrate="5776" chromaLocation="left" codec="h264" default="1" displayTitle="1080p (H.264)" frameRate="23.975999999999999" height="1080" id="31486" language="日本語" languageCode="jpn" streamType="1" width="1920" decision="copy" location="segments-video"/>
+                <Stream bitrate="192" bitrateMode="cbr" channels="2" codec="aac" default="1" displayTitle="English (AAC Stereo)" id="31487" language="English" languageCode="eng" selected="1" streamType="2" decision="copy" location="segments-audio"/>
+            </Part>
+        </Media>
+        <Director filter="director=22188" id="22188" tag="Shingo Natsume"/>
+        <Writer filter="writer=22187" id="22187" tag="Tomohiro Suzuki"/>
+        <User id="1" thumb="https://plex.tv/users/d927be529ee9fccb/avatar?c=1558480799" title="david_doolan"/>
+        <Player address="192.168.1.45" device="OSX" machineIdentifier="akdr4c13eweinh0ormy1rcpk" model="bundled" platform="Chrome" platformVersion="75.0" product="Plex Web" profile="Web" remotePublicAddress="" state="playing" title="Chrome" vendor="" version="3.95.2" local="1" relayed="0" secure="1" userID="1"/>
+        <Session id="xxrdpu4o33mlry1jas2wwlp9" bandwidth="7861" location="lan"/>
+        <TranscodeSession key="/transcode/sessions/htts0ol5pcsp6bj64tt3ogn0" throttled="1" complete="0" progress="15.199999809265137" speed="0" duration="1441109" remaining="9893" context="streaming" sourceVideoCodec="h264" sourceAudioCodec="aac" videoDecision="copy" audioDecision="copy" protocol="dash" container="mp4" videoCodec="h264" audioCodec="aac" audioChannels="2" transcodeHwRequested="0" transcodeHwFullPipeline="1" timeStamp="1561261444.3140132" maxOffsetAvailable="214.67199999999994" minOffsetAvailable="1"/>
+    </Video>
+</MediaContainer>

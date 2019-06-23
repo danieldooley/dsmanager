@@ -1,0 +1,16 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weblogs</title>
+</head>
+<body>
+    {{range $index, $element := .Lines}}
+        <p>{{$element}}</p>
+    {{else}}
+        <p>No Logs Provided</p>
+    {{end}}
+</body>
+</html>
+{{end}}

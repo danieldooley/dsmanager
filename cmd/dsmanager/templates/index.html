@@ -1,0 +1,30 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dsmanager</title>
+</head>
+<body>
+    <h1>dooley-server Manager - Up since: {{.StartTime.Format "Jan _2 15:04:05"}}</h1>
+
+    <p>
+        <a href="/hibernate"><button>Hibernate</button></a>
+    </p>
+
+    <h2>Links:</h2>
+    <ul>
+        <li><a href="/weblogs">WebLogs</a></li>
+    </ul>
+
+    <h2>Scheduled Tasks:</h2>
+    <ul>
+    {{range $label, $sc := .ScheduledTasks}}
+        <li><strong>{{$label}}: </strong>Last Run: {{$sc.LastRun.Format "Jan _2 15:04:05"}} {{if $sc.LastError}}Error: {{$sc.LastError}}{{end}}</li>
+    {{else}}
+        <li>No Tasks Scheduled</li>
+    {{end}}
+    </ul>
+</body>
+</html>
+{{end}}
