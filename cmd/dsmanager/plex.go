@@ -12,20 +12,41 @@ import (
 const (
 	plexToken = "hiiBVvyBfvJ64_W5HUqy"
 	plexUrl = "dooley-server.local:32400"
-
-	hibernateStart = 22 //10:00pm //Hibernate start MUST BE greater than hibernateEnd
-	hibernateEnd = 10 //10:00am
 )
 
-func hibernate() error {
-	var till time.Time
-	if time.Now().Hour() > hibernateStart {
-		till = time.Date(time.Now().Year(), time.Now().Month(), time.Now().Day()+1, hibernateEnd, 0, 0, 0, time.Local)
-	} else {
-		till = time.Date(time.Now().Year(), time.Now().Month(), time.Now().Day(), hibernateEnd, 0, 0, 0, time.Local)
-	}
+var hibernateEnds = map[time.Weekday]int{
+	time.Sunday: 12,
+	time.Monday: 16,
+	time.Tuesday: 16,
+	time.Wednesday: 16,
+	time.Thursday: 16,
+	time.Friday: 16,
+	time.Saturday: 12,
+}
 
-	return shutDownTill(till)
+var hibernateStarts = map[time.Weekday]int{
+	time.Sunday: 22,
+	time.Monday: 22,
+	time.Tuesday: 22,
+	time.Wednesday: 22,
+	time.Thursday: 22,
+	time.Friday: 22,
+	time.Saturday: 22,
+}
+
+func getNextEnd() time.Time {
+	now := time.Now()
+	return time.Date(now.Year(), now.Month(), now.Day(), hibernateStarts[now.Weekday()], 0, 0, 0, time.Local)
+}
+
+func getNextStart() time.Time {
+	tmrw := time.Now().AddDate(0, 0, 1)
+
+	return time.Date(tmrw.Year(), tmrw.Month(), tmrw.Day(), hibernateEnds[tmrw.Weekday()], 0, 0, 0, time.Local)
+}
+
+func hibernate() error {
+	return shutDownTill(getNextStart())
 }
 
 func plexHibernate() scheduledTask {
@@ -35,13 +56,11 @@ func plexHibernate() scheduledTask {
 
 		task: func() error {
 			if time.Since(startTime) < time.Hour {
-				webLogf("PlexHibernate: Server has not been up an hour")
 				return nil //If server has been turned on wait at least an hour before turning off
 			}
 
-			if time.Now().Hour() < hibernateStart && time.Now().Hour() >= hibernateEnd {
-				webLogf("PlexHibernate: Hour %v is not between %v and %v", time.Now().Hour(), hibernateStart, hibernateEnd)
-				return nil //If time is between start&end don't try to turn off
+			if time.Now().After(getNextStart()) {
+				return nil
 			}
 
 			idle, err := isIdle()
@@ -50,13 +69,10 @@ func plexHibernate() scheduledTask {
 			}
 
 			if idle {
-				webLogf("PlexHibernate: Shutting down till: %v", hibernateEnd)
 				err := hibernate()
 				if err != nil {
 					return fmt.Errorf("hibernate() failed: %v", err)
 				}
-			} else {
-				webLogf("PlexHibernate: Not Idle")
 			}
 
 			return nil

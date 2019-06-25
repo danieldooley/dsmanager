@@ -36,7 +36,7 @@ func startScheduler() {
 		scheduledMutex.Lock()
 
 		for k, v := range scheduled {
-			if time.Now().After(v.LastRun.Add(time.Minute * time.Duration(v.interval))) {
+			if time.Now().After(v.LastRun.Add((time.Minute * time.Duration(v.interval)) - time.Minute)) { //subtract a minute to prevent constant +1 minute every run
 				go runTask(k, v)
 			}
 		}
@@ -50,7 +50,6 @@ func runTask(label string, sc *scheduledTask) {
 		webLogf("Scheduler: Cannot start %v: already Running", label)
 		return
 	}
-	webLogf("Scheduler: Starting %v", label)
 	sc.LastRun = time.Now()
 	timer := time.NewTimer(sc.timeout)
 	context := make(chan error)
@@ -79,7 +78,6 @@ func runTask(label string, sc *scheduledTask) {
 			webLogf("Scheduler: %v returned an error %v", label, err)
 			sc.LastError = err
 		} else {
-			webLogf("Scheduler: Completed %v", label)
 			sc.LastError = nil
 		}
 		return
