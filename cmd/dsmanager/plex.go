@@ -51,7 +51,7 @@ func hibernate() error {
 
 func plexHibernate() scheduledTask {
 	return scheduledTask{
-		interval: 10,
+		interval: 2,
 		timeout: time.Minute,
 
 		task: func() error {
