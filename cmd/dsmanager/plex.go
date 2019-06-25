@@ -14,7 +14,7 @@ const (
 	plexUrl = "dooley-server.local:32400"
 )
 
-var hibernateEnds = map[time.Weekday]int{
+var onTimes = map[time.Weekday]int{
 	time.Sunday: 12,
 	time.Monday: 16,
 	time.Tuesday: 16,
@@ -24,7 +24,7 @@ var hibernateEnds = map[time.Weekday]int{
 	time.Saturday: 12,
 }
 
-var hibernateStarts = map[time.Weekday]int{
+var offTimes = map[time.Weekday]int{
 	time.Sunday: 22,
 	time.Monday: 22,
 	time.Tuesday: 22,
@@ -34,19 +34,19 @@ var hibernateStarts = map[time.Weekday]int{
 	time.Saturday: 22,
 }
 
-func getNextEnd() time.Time {
+func getNextOff() time.Time {
 	now := time.Now()
-	return time.Date(now.Year(), now.Month(), now.Day(), hibernateStarts[now.Weekday()], 0, 0, 0, time.Local)
+	return time.Date(now.Year(), now.Month(), now.Day(), offTimes[now.Weekday()], 0, 0, 0, time.Local)
 }
 
-func getNextStart() time.Time {
+func getNextOn() time.Time {
 	tmrw := time.Now().AddDate(0, 0, 1)
 
-	return time.Date(tmrw.Year(), tmrw.Month(), tmrw.Day(), hibernateEnds[tmrw.Weekday()], 0, 0, 0, time.Local)
+	return time.Date(tmrw.Year(), tmrw.Month(), tmrw.Day(), onTimes[tmrw.Weekday()], 0, 0, 0, time.Local)
 }
 
 func hibernate() error {
-	return shutDownTill(getNextStart())
+	return shutDownTill(getNextOn())
 }
 
 func plexHibernate() scheduledTask {
@@ -59,7 +59,7 @@ func plexHibernate() scheduledTask {
 				return nil //If server has been turned on wait at least an hour before turning off
 			}
 
-			if time.Now().After(getNextStart()) {
+			if time.Now().After(getNextOff()) {
 				return nil
 			}
 

@@ -31,13 +31,13 @@ func main(){
 type indexPage struct {
 	ScheduledTasks map[string]*scheduledTask
 	StartTime time.Time
-	NextEndTime time.Time
-	NextStartTime time.Time
+	NextOnTime time.Time
+	NextOffTime time.Time
 }
 
 func handleIndex(res http.ResponseWriter, req *http.Request) {
 
-	ip := indexPage{ScheduledTasks:scheduled, StartTime:startTime, NextEndTime: getNextEnd(), NextStartTime: getNextStart()}
+	ip := indexPage{ScheduledTasks:scheduled, StartTime:startTime, NextOnTime: getNextOn(), NextOffTime: getNextOff()}
 
 	err := indexTemplate.Execute(res, ip)
 	if err != nil {
