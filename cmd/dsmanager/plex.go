@@ -8,30 +8,29 @@ import (
 	"time"
 )
 
-
 const (
 	plexToken = "hiiBVvyBfvJ64_W5HUqy"
-	plexUrl = "dooley-server.local:32400"
+	plexUrl   = "dooley-server.local:32400"
 )
 
 var onTimes = map[time.Weekday]int{
-	time.Sunday: 12,
-	time.Monday: 16,
-	time.Tuesday: 16,
+	time.Sunday:    16,
+	time.Monday:    16,
+	time.Tuesday:   16,
 	time.Wednesday: 16,
-	time.Thursday: 16,
-	time.Friday: 16,
-	time.Saturday: 12,
+	time.Thursday:  16,
+	time.Friday:    16,
+	time.Saturday:  16,
 }
 
 var offTimes = map[time.Weekday]int{
-	time.Sunday: 22,
-	time.Monday: 22,
-	time.Tuesday: 22,
-	time.Wednesday: 22,
-	time.Thursday: 22,
-	time.Friday: 22,
-	time.Saturday: 22,
+	time.Sunday:    21,
+	time.Monday:    21,
+	time.Tuesday:   21,
+	time.Wednesday: 21,
+	time.Thursday:  21,
+	time.Friday:    21,
+	time.Saturday:  21,
 }
 
 func getNextOff() time.Time {
@@ -40,9 +39,22 @@ func getNextOff() time.Time {
 }
 
 func getNextOn() time.Time {
-	tmrw := time.Now().AddDate(0, 0, 1)
+	next, err := nextActivity() //Get next calendar activity - for now just Sonarr, movies will just download when available
+	if err != nil {
+		webLogf("ERROR: %v", err)
+		next = time.Date(9999, 0, 0, 0, 0, 0, 0, time.UTC)
+	}
 
-	return time.Date(tmrw.Year(), tmrw.Month(), tmrw.Day(), onTimes[tmrw.Weekday()], 0, 0, 0, time.Local)
+	onNext := time.Date(next.Year(), next.Month(), next.Day(), onTimes[next.Weekday()], 0, 0, 0, time.UTC)
+
+	days3 := time.Now().AddDate(0, 0, 3) // Don't go to sleep for longer than 3 days
+	defaultNext := time.Date(days3.Year(), days3.Month(), days3.Day(), onTimes[days3.Weekday()], 0, 0, 0, time.Local)
+
+	if defaultNext.Before(onNext) {
+		onNext = defaultNext
+	}
+
+	return onNext
 }
 
 func hibernate() error {
@@ -52,9 +64,13 @@ func hibernate() error {
 func plexHibernate() scheduledTask {
 	return scheduledTask{
 		interval: 2,
-		timeout: time.Minute,
+		timeout:  time.Minute,
 
 		task: func() error {
+			if hibernatePaused {
+				return nil
+			}
+
 			if time.Since(startTime) < time.Hour {
 				return nil //If server has been turned on wait at least an hour before turning off
 			}
@@ -68,7 +84,12 @@ func plexHibernate() scheduledTask {
 				return fmt.Errorf("could not determine idle status: %v", err)
 			}
 
-			if idle {
+			active, err := isActive()
+			if err != nil {
+				return fmt.Errorf("could not determine download active status: %v", err)
+			}
+
+			if idle && !active {
 				err := hibernate()
 				if err != nil {
 					return fmt.Errorf("hibernate() failed: %v", err)
@@ -138,10 +159,9 @@ func getStatusSessions() (StatusSessionsMediaContainer, error) {
 	return mc, nil
 }
 
-
 /*
 	Types
- */
+*/
 
 type ClientsMediaContainer struct {
 	XMLName xml.Name `xml:"MediaContainer"`

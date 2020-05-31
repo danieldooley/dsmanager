@@ -8,14 +8,14 @@ import (
 
 /*
 	A scheduled task can be setup and monitored
- */
+*/
 
 var scheduled = make(map[string]*scheduledTask)
 var scheduledMutex = sync.Mutex{}
 
 type scheduledTask struct {
 	interval int //time in minutes between runs
-	timeout time.Duration
+	timeout  time.Duration
 
 	Running bool
 
@@ -25,7 +25,7 @@ type scheduledTask struct {
 	task func() error
 }
 
-func init(){
+func init() {
 	go startScheduler()
 }
 
@@ -55,14 +55,14 @@ func runTask(label string, sc *scheduledTask) {
 	context := make(chan error)
 
 	sc.Running = true
-	defer func(){
+	defer func() {
 		sc.Running = false
 	}()
 	go func() {
 		select {
-		case context<- sc.task():
+		case context <- sc.task():
 			return
-		case  <-context: //Task has been timed out :(
+		case <-context: //Task has been timed out :(
 			return
 		}
 	}()
@@ -84,14 +84,14 @@ func runTask(label string, sc *scheduledTask) {
 	}
 }
 
-func start(sc scheduledTask, label string){
+func start(sc scheduledTask, label string) {
 	scheduledMutex.Lock()
 	sc.LastRun = time.Now()
 	scheduled[label] = &sc
 	scheduledMutex.Unlock()
 }
 
-func stop(label string){
+func stop(label string) {
 	scheduledMutex.Lock()
 	delete(scheduled, label)
 	scheduledMutex.Unlock()

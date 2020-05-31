@@ -7,11 +7,29 @@
 </head>
 <body>
     <h1>dooley-server Manager - Up since: {{.StartTime.Format "Jan _2 15:04:05"}}</h1>
-    <h3>Will hibernate from {{.NextOffTime.Format "Jan _2 15:04:05"}} till {{.NextOnTime.Format "Jan _2 15:04:05"}}</h3>
+    {{if .Paused}}
+        <h3>Hibernation Paused</h3>
+    {{else}}
+        <h3>Will hibernate from {{.NextOffTime.Format "Jan _2 15:04:05"}} till {{.NextOnTime.Format "Jan _2 15:04:05"}}</h3>
+    {{end}}
 
     <p>
         <a href="/hibernate"><button>Hibernate</button></a>
     </p>
+
+    <p>
+        {{if .Paused}}
+            <a href="?unpause=true"><button>Unpause</button></a>
+        {{else}}
+            <a href="?pause=true"><button>Pause</button></a>
+        {{end}}
+    </p>
+
+    <h2>Statuse:</h2>
+    <ul>
+        <li>Plex: {{.PlexStatus}}</li>
+        <li>Download: {{.DLStatus}}</li>
+    </ul>
 
     <h2>Links:</h2>
     <ul>

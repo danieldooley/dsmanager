@@ -12,7 +12,9 @@ import (
 var startTime = time.Now()
 var indexTemplate = template.Must(template.New("base").ParseFiles("templates/index.html"))
 
-func main(){
+var hibernatePaused bool
+
+func main() {
 	//Schedule some shit
 	start(webLogCleanup(), "WebLogCleanup")
 	start(plexHibernate(), "PlexHibernate")
@@ -30,16 +32,47 @@ func main(){
 
 type indexPage struct {
 	ScheduledTasks map[string]*scheduledTask
-	StartTime time.Time
-	NextOnTime time.Time
-	NextOffTime time.Time
+	StartTime      time.Time
+	NextOnTime     time.Time
+	NextOffTime    time.Time
+	PlexStatus     string
+	DLStatus       string
+	Paused         bool
 }
 
 func handleIndex(res http.ResponseWriter, req *http.Request) {
+	if req.URL.Query().Get("pause") != "" {
+		hibernatePaused = true
+	}
+	if req.URL.Query().Get("unpause") != "" {
+		hibernatePaused = false
+	}
 
-	ip := indexPage{ScheduledTasks:scheduled, StartTime:startTime, NextOnTime: getNextOn(), NextOffTime: getNextOff()}
+	var pStatus string
+	plexIdle, err := isIdle()
+	if err != nil {
+		webLogf("ERROR: Cannot retrieve plex isIdle(): %v", err)
+		pStatus = "ERROR"
+	} else if !plexIdle {
+		pStatus = "ACTIVE"
+	} else {
+		pStatus = "IDLE"
+	}
 
-	err := indexTemplate.Execute(res, ip)
+	var dlStatus string
+	dlActive, err := isActive()
+	if err != nil {
+		webLogf("ERROR: Cannot retrieve Sonarr/Radarr isActive(): %v", err)
+		dlStatus = "ERROR"
+	} else if dlActive {
+		dlStatus = "ACTIVE"
+	} else {
+		dlStatus = "IDLE"
+	}
+
+	ip := indexPage{ScheduledTasks: scheduled, StartTime: startTime, NextOnTime: getNextOn(), NextOffTime: getNextOff(), PlexStatus: pStatus, DLStatus: dlStatus, Paused: hibernatePaused}
+
+	err = indexTemplate.Execute(res, ip)
 	if err != nil {
 		http.Error(res, fmt.Sprintf("failed to execute template: %v", err), http.StatusInternalServerError)
 		return
@@ -47,12 +80,14 @@ func handleIndex(res http.ResponseWriter, req *http.Request) {
 }
 
 func handleHibernate(res http.ResponseWriter, req *http.Request) {
-	err := hibernate()
-	if err != nil {
-		webLogf("HandleHibernate: hibernate() failed: %v", err)
-		http.Error(res, fmt.Sprintf("hibernate() failed: %v", err), http.StatusInternalServerError)
-		return
-	}
+	go func() {
+		err := hibernate()
+		if err != nil {
+			webLogf("HandleHibernate: hibernate() failed: %v", err)
+			http.Error(res, fmt.Sprintf("hibernate() failed: %v", err), http.StatusInternalServerError)
+			return
+		}
+	}()
 
 	res.Write([]byte("Hibernating Server - dsmanager will become unavailable shortly"))
 }
