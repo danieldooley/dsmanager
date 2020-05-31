@@ -6,7 +6,8 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/home/ddooley/go/src/github.com/danieldooley/dsmanager/cmd/dsmanager
-ExecStart=GOROOT=/usr/lib/go /usr/bin/go run main.go plex.go schedule.go weblogger.go sonarr.go
+Environment=GOROOT=/usr/lib/go
+ExecStart=/usr/bin/go run main.go plex.go schedule.go weblogger.go sonarr.go
 Restart=on-failure
 
 [Install]
