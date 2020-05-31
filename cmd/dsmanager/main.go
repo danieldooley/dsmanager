@@ -81,10 +81,11 @@ func handleIndex(res http.ResponseWriter, req *http.Request) {
 
 func handleHibernate(res http.ResponseWriter, req *http.Request) {
 	go func() {
+		time.Sleep(time.Second)
 		err := hibernate()
 		if err != nil {
 			webLogf("HandleHibernate: hibernate() failed: %v", err)
-			http.Error(res, fmt.Sprintf("hibernate() failed: %v", err), http.StatusInternalServerError)
+			// http.Error(res, fmt.Sprintf("hibernate() failed: %v", err), http.StatusInternalServerError)
 			return
 		}
 	}()
