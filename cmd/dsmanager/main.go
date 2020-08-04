@@ -70,7 +70,7 @@ func handleIndex(res http.ResponseWriter, req *http.Request) {
 		dlStatus = "IDLE"
 	}
 
-	ip := indexPage{ScheduledTasks: scheduled, StartTime: startTime, NextOnTime: getNextOn(), NextOffTime: getNextOff(), PlexStatus: pStatus, DLStatus: dlStatus, Paused: hibernatePaused}
+	ip := indexPage{ScheduledTasks: scheduled, StartTime: startTime, NextOnTime: getNextOn(), NextOffTime: today().off, PlexStatus: pStatus, DLStatus: dlStatus, Paused: hibernatePaused}
 
 	err = indexTemplate.Execute(res, ip)
 	if err != nil {

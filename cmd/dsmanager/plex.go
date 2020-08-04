@@ -33,9 +33,17 @@ var offTimes = map[time.Weekday]int{
 	time.Saturday:  21,
 }
 
-func getNextOff() time.Time {
+type Day struct {
+	on, off time.Time
+}
+
+
+func today() Day {
 	now := time.Now()
-	return time.Date(now.Year(), now.Month(), now.Day(), offTimes[now.Weekday()], 0, 0, 0, time.Local)
+	return Day{
+		on:  time.Date(now.Year(), now.Month(), now.Day(), onTimes[now.Weekday()], 0, 0, 0, time.Local),
+		off: time.Date(now.Year(), now.Month(), now.Day(), offTimes[now.Weekday()], 0, 0, 0, time.Local),
+	}
 }
 
 func getNextOn() time.Time {
@@ -45,7 +53,9 @@ func getNextOn() time.Time {
 		next = time.Date(9999, 0, 0, 0, 0, 0, 0, time.UTC)
 	}
 
-	onNext := time.Date(next.Year(), next.Month(), next.Day(), onTimes[next.Weekday()], 0, 0, 0, time.UTC)
+	nextLocal := next.In(time.Local)
+
+	onNext := time.Date(nextLocal.Year(), nextLocal.Month(), nextLocal.Day(), onTimes[nextLocal.Weekday()], 0, 0, 0, time.Local)
 
 	days3 := time.Now().AddDate(0, 0, 3) // Don't go to sleep for longer than 3 days
 	defaultNext := time.Date(days3.Year(), days3.Month(), days3.Day(), onTimes[days3.Weekday()], 0, 0, 0, time.Local)
@@ -75,7 +85,9 @@ func plexHibernate() scheduledTask {
 				return nil //If server has been turned on wait at least an hour before turning off
 			}
 
-			if time.Now().After(getNextOff()) {
+			t := today()
+
+			if time.Now().Before(t.off) && time.Now().After(t.on) {
 				return nil
 			}
 
